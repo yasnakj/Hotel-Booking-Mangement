@@ -1,0 +1,326 @@
+<html lang="en">
+<head>
+    <title>e-Hotels</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Style sheet (CSS) and JavaScript scripts necessary to use Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>    
+    <script src="scripts/bookings.js"></script>
+    <script src="https://kit.fontawesome.com/a03b673a1f.js" crossorigin="anonymous"></script>
+    <!-- Your own additional style sheet -->
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <style>
+      .bg-Hotels {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          background-image: url('images/BG1.jpg');
+          background-size: 100% 100%;
+          background-repeat: no-repeat;   
+          
+      }
+      .bg-Hotels::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          width: 100%;
+          height: 100%;
+          background-color: rgba(44, 77, 168, 0.329); 
+          opacity: 0.1; 
+      }
+      .bg-Hotels .container-md {
+          position: relative;
+          z-index: 5;
+          padding: 100px; 
+      }
+      .center-block {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+      }
+  </style>
+     <style>
+        .bg-pink {
+          background-color: rgba(28, 68, 201, 0.322);
+        }
+        
+        .dark-pink-button {
+          background-color: rgb(11, 42, 143);
+          border-color: rgb(63, 53, 83);
+        }
+        
+        .dark-pink-button:hover {
+          background-color: rgb(85, 48, 48);
+          border-color: rgb(61, 42, 42);
+        }
+      </style>
+</head>
+<body>
+    <!-- Navigation Bar with Login -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">e-Hotels</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <!-- Login Dropdown -->
+                <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Login
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="loginDropdown">
+        <form class="px-4 py-3" id="loginForm">
+            <div class="form-group">
+                <label for="dropdownUsername">Username</label>
+                <input type="text" class="form-control" id="dropdownUsername" name="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <label for="dropdownPassword">Password</label>
+                <input type="password" class="form-control" id="dropdownPassword" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">New around here? Sign up</a>
+        <a class="dropdown-item" href="#">Forgot password?</a>
+    </div>
+</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="bg-Hotels">
+      <div class="container-md p-3 my-3 border custom-container text-dark-pink">
+        <img src="./images/logo.png" class="center-block" alt="logo" style="height: 200px; width: 200px;">
+          <div class="white-background">
+            <br>
+            <h4 class="text-center">Hotels For All</h4>
+          </div>
+      </div>
+    </div>
+
+   
+    <div class="container">
+      <nav class="row p-3 justify-content-center">
+        
+        <a href="#bookings" class="nav-link" id="navigateTobookings"><i class="fas fa-calendar-alt"></i> Bookings</a>
+        <a href="#payment" class="nav-link" id="navigateToPayment"><i class="fas fa-dollar-sign"></i> Payments</a>
+        <a href="#ContactUs" class="nav-link" id="navigateToContactUs"><i class="fas fa-envelope"></i> Contact us</a>
+      </nav>
+    </div>
+    
+  
+
+    <style>
+        .custom-table {
+          background-color: rgb(55, 84, 148);
+        }
+      </style>
+   
+      <br>
+    
+    <div class="container border bg-pink" style="width: 1100px; justify-content: center;"><br>
+      <div id="Bookings"></div>
+      <h5><i class="fas fa-calendar-alt"></i> Bookings</h5>
+      <a href="#Bookings" class="btn btn-primary btn-block dark-pink-button" style= "width: 1075px;" data-toggle="collapse">Book a room</a><br>
+      <div id="Bookings" class="collapse" style="height: fit-content;">
+        <form action="/payment" method="post">
+          <!-- Bookings Selection -->
+          <label for="City">Select a city:</label>
+          <select id="City" name="City">
+              <option disabled selected value> -- select an option -- </option>
+              <option value="1">C1</option>
+              <option value="2">C2</option>
+              <option value="3">C3</option>
+          </select><br>
+          <label for="stars">Select the stars of the hotel:</label>
+          <select id="stars" name="stars">
+              <option disabled selected value> -- select an option -- </option>
+              <option value="1">1-star</option>
+              <option value="2">2-star</option>
+              <option value="3">3-star</option>
+              <option value="4">4-star</option>
+              <option value="5">5-star</option>
+          </select><br>
+
+          <label for="Hotels">Choose your Hotel:</label>
+          <select id="Hotels" name="Hotels" required>
+              <option disabled selected value> -- select an option -- </option>
+              <option value="1">H1</option>
+              <option value="2">H2</option>
+          </select><br>
+
+          <label for="Rooms">Choose your Room:</label>
+          <select id="Rooms" name="Rooms" required>
+              <option disabled selected value> -- select an option -- </option>
+              <option value="1">Single</option>
+              <option value="2">Double</option>
+              <option value="3">Suite</option>
+          </select><br>
+          <!-- Date and Time Selection -->
+          <label for="Bookings">Choose a Start Date:</label>
+          <input type="date" id="bookingDate" name="bookingDate" required><br>
+          <label for="bookingEndDate">Choose an End Date:</label>
+          <input type="date" id="bookingEndDate" name="bookingEndDate" required><br>
+          <label for="bookingTime">Choose the check-in time:</label>
+          <input type="time" id="bookingTime" name="bookingTime" min="10:00" max="19:00" value="10:00" required> <br>
+
+          <!-- Contact Information -->
+          <label for="fullName">Full Name:</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Jane Doe" required><br>
+
+          <label for="phoneNumber">Phone Number:</label>
+          <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="123-456-7890"  required><br>
+
+          <input type="submit" value="Submit"><br>
+          <br>
+          
+          <a href="#payment" class="btn btn-primary btn-block dark-pink-button" style= "width: 1075px;" data-toggle="collapse">Go to Payment</a><br>
+          <div id="payment" class="collapse" style="height: fit-content;">
+            <form action="" method="post">
+              <div id="paymentSection"></div>
+                <div class="container border bg-pink" style="width: 1075px; justify-content: center;"><br>
+                    <h4>Payment Information</h4>
+                    <label for="cardName">Name on Card:</label>
+                    <input type="text" class="form-control" id="cardName" name="cardName" placeholder="John Doe" required>
+                    <label for="cardNumber">Credit Card Number:</label>
+                    <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="1111-2222-3333-4444" required>
+                    <label for="cardExp">Expiration Date:</label>
+                        <input type="text" class="form-control" id="cardExp" name="cardExp" placeholder="MM/YY" required>
+                        <label for="cardCVV">CVV:</label>
+                        <input type="text" class="form-control" id="cardCVV" name="cardCVV" placeholder="123" required>
+                      <br>
+                    <input type="submit" value="Pay Now"><br>
+                    <br>
+                </div>
+          
+                </form>
+                <br>
+              </div>
+      </div>
+    </div>
+    <br>
+       <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+      </div>
+    
+  </div>
+    <!-- Including a modal https://www.w3schools.com/bootstrap4/bootstrap_modal.asp -->
+    <!-- Here the modal is used for a little survey -->
+    <div class="container">
+      <h2><i class="fa-solid fa-clipboard-question"></i> Modal Example</h2>
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#mySurvey">Open Survey</button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="mySurvey" role="dialog">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      
+                      <h4 class="modal-title">Survey</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="container">
+                          <h2>How did you hear about us?</h2>
+                          <p>Tell us:</p>
+                          <form>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" value="Social Media"> Social Media
+                                  </label>
+                              </div>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" value="Friends & Family"> Friends & Family
+                                  </label>
+                              </div>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" value="Other" id="otherCheckbox"> Other
+                                  </label>
+                                  <input type="text" id="otherTextInput" style="display: none;">
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const otherCheckbox = document.getElementById('otherCheckbox');
+            const otherTextInput = document.getElementById('otherTextInput');
+
+            otherCheckbox.addEventListener('change', function () {
+                if (otherCheckbox.checked) {
+                    otherTextInput.style.display = 'block';
+                } else {
+                    otherTextInput.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+      var Hotelsavailability = {
+        '1': [3, 4], // H1 is not available on Wednesday (3) and Thursday (4)
+        '2': [4, 5]  // H2 is not available on Thursday (4) and Friday (5)
+      };
+    
+      $('#Hotels, #bookingDate').change(function() {
+        var Hotels = $('#Hotels').val();
+        var date = $('#bookingDate').val().split('-');
+        var dayOfWeek = new Date(date[0], date[1] - 1, date[2]).getDay();
+    
+        if (Hotels && HotelsAvailability[Hotels].includes(dayOfWeek)) {
+          alert('The selected hotel is not available on the chosen date. Please select another date.');
+          $('#bookingDate').val(''); // reset the date input field
+        }
+      });
+    });
+    </script>
+    
+
+<div id="ContactUs"></div>
+<div class="container p-3 my-3 border bg-pink ">
+  <h2> <i class="fas fa-envelope"></i> Contact Us</h2>
+  <a href="#contact" class="btn btn-primary btn-block dark-pink-button" data-toggle="collapse">Contact Information</a>
+  <div id="contact" class="collapse">
+    <p><br>Phone Number: 123-456-7890</p>
+    <p>Email Address: ehotels@email.com</p>
+  </div>
+  <a href="#address" class="btn btn-primary btn-block dark-pink-button" data-toggle="collapse">Location</a>
+  <div id="address" class="collapse" style="height: fit-content;">
+    <p><br>Location: 200 Main St. Ottawa, ON A1B 2C3</p>
+    <div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 180px">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d719085.851534262!2d-76.4597105321139!3d45.24922630491754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce05b25f5113af%3A0x8a6a51e131dd15ed!2sOttawa%2C%20ON!5e0!3m2!1sen!2sca!4v1707443294496!5m2!1sen!2sca" frameborder="0"
+        style="border:0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+h1 {
+  font-family: 'Brush Script MT', cursive;
+  text-shadow: 3px 3px 1px black;
+  
+}
+h1 {
+  text-align: left;
+  
+}
+p1 {
+ font-family: 'Brush Script MT', cursive;
+ text-shadow: 3px 3px 1px black;
+ 
+}
+
+.map-container-2{
+ overflow:hidden;
+ padding-bottom:56.25%;
+ position:relative;
+ height:0;
+}
+.map-container-2 iframe{
+ left:0;
+ top:0;
+ height:100%;
+ width:100%;
+ position:absolute;
+}
+.container {
+max-width: 1200px;
+margin: 0 auto;
+/* Add other container styles */
+}
+
+.row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+/* Add other row styles */
+}
+
+/* Add specific styles for each column if necessary */
+.col-sm-3 {
+padding: 1px;
+background-color: #f9f9f9;
+/* Add other column styles */
+}
+
+.modal-header {
+text-align: left;
+display: flex;
+justify-content: flex-start;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.navbar {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+
+.container, .container-md {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+
+.custom-container {
+    padding: 0.5rem;
+}
